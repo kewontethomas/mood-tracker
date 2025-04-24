@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Goal & Mood Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Daily Goal & Mood Tracker</h1>
+
+    <div class="form-section">
+      <label for="goalInput">What's your main goal today?</label><br />
+      <input type="text" id="goalInput" placeholder="e.g. Finish homework" />
+
+      <label for="moodSelect">How are you feeling?</label><br />
+      <select id="moodSelect">
+        <option value="">-- Choose your mood --</option>
+        <option value="😊">Happy</option>
+        <option value="😐">Neutral</option>
+        <option value="😔">Sad</option>
+        <option value="😡">Angry</option>
+        <option value="😴">Tired</option>
+      </select>
+
+      <button onclick="addEntry()">Log Entry</button>
+      <br />
+      <button onclick="clearEntries()" style="background-color: #e74c3c;">Clear All Entries</button>
+    </div>
+
+    <h2>📅 History</h2>
+    
+    <!-- 🎯 Mood Filter Dropdown -->
+    <label for="moodFilter">Filter by Mood:</label>
+    <select id="moodFilter" onchange="filterEntries()">
+      <option value="all">Show All</option>
+      <option value="😊">😊 Happy</option>
+      <option value="😐">😐 Neutral</option>
+      <option value="😔">😔 Sad</option>
+      <option value="😡">😡 Angry</option>
+      <option value="😴">😴 Tired</option>
+    </select>
+
+    <h2>Mood Overview</h2>
+    <canvas id="moodChart" width="400" height="200"></canvas>
+
+    <ul id="logList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
